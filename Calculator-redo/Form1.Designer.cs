@@ -29,6 +29,7 @@ namespace Calculator_redo
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calculator));
             this.resultFrame = new System.Windows.Forms.TextBox();
             this.ClrAllBtn = new System.Windows.Forms.Button();
             this.Btn7 = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@ namespace Calculator_redo
             this.resultFrame.Name = "resultFrame";
             this.resultFrame.Size = new System.Drawing.Size(365, 85);
             this.resultFrame.TabIndex = 0;
+            this.resultFrame.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ClrAllBtn
             // 
@@ -73,6 +75,8 @@ namespace Calculator_redo
             // 
             // Btn7
             // 
+            this.Btn7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn7.BackgroundImage")));
+            this.Btn7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn7.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn7.Location = new System.Drawing.Point(12, 183);
             this.Btn7.Name = "Btn7";
@@ -83,6 +87,8 @@ namespace Calculator_redo
             // 
             // Btn4
             // 
+            this.Btn4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn4.BackgroundImage")));
+            this.Btn4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn4.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn4.Location = new System.Drawing.Point(12, 242);
             this.Btn4.Name = "Btn4";
@@ -93,6 +99,8 @@ namespace Calculator_redo
             // 
             // Btn1
             // 
+            this.Btn1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn1.BackgroundImage")));
+            this.Btn1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn1.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn1.Location = new System.Drawing.Point(12, 301);
             this.Btn1.Name = "Btn1";
@@ -123,6 +131,8 @@ namespace Calculator_redo
             // 
             // Btn8
             // 
+            this.Btn8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn8.BackgroundImage")));
+            this.Btn8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn8.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn8.Location = new System.Drawing.Point(102, 183);
             this.Btn8.Name = "Btn8";
@@ -133,6 +143,8 @@ namespace Calculator_redo
             // 
             // Btn5
             // 
+            this.Btn5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn5.BackgroundImage")));
+            this.Btn5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn5.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn5.Location = new System.Drawing.Point(102, 242);
             this.Btn5.Name = "Btn5";
@@ -143,6 +155,8 @@ namespace Calculator_redo
             // 
             // Btn2
             // 
+            this.Btn2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn2.BackgroundImage")));
+            this.Btn2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn2.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn2.Location = new System.Drawing.Point(102, 301);
             this.Btn2.Name = "Btn2";
@@ -153,6 +167,8 @@ namespace Calculator_redo
             // 
             // Btn0
             // 
+            this.Btn0.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn0.BackgroundImage")));
+            this.Btn0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn0.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn0.Location = new System.Drawing.Point(102, 362);
             this.Btn0.Name = "Btn0";
@@ -173,6 +189,8 @@ namespace Calculator_redo
             // 
             // Btn9
             // 
+            this.Btn9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn9.BackgroundImage")));
+            this.Btn9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn9.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn9.Location = new System.Drawing.Point(192, 183);
             this.Btn9.Name = "Btn9";
@@ -183,6 +201,8 @@ namespace Calculator_redo
             // 
             // Btn6
             // 
+            this.Btn6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn6.BackgroundImage")));
+            this.Btn6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn6.Font = new System.Drawing.Font("Microsoft YaHei", 21.75F);
             this.Btn6.Location = new System.Drawing.Point(192, 242);
             this.Btn6.Name = "Btn6";
@@ -193,6 +213,8 @@ namespace Calculator_redo
             // 
             // Btn3
             // 
+            this.Btn3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Btn3.BackgroundImage")));
+            this.Btn3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Btn3.Font = new System.Drawing.Font("Microsoft Tai Le", 21.75F);
             this.Btn3.Location = new System.Drawing.Point(192, 301);
             this.Btn3.Name = "Btn3";
@@ -265,6 +287,8 @@ namespace Calculator_redo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(387, 427);
             this.Controls.Add(this.equalBtn);
             this.Controls.Add(this.plusBtn);
@@ -287,6 +311,7 @@ namespace Calculator_redo
             this.Controls.Add(this.Btn7);
             this.Controls.Add(this.ClrAllBtn);
             this.Controls.Add(this.resultFrame);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Calculator";
             this.ShowIcon = false;
