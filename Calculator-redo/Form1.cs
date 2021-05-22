@@ -16,5 +16,10 @@ namespace Calculator_redo
         {
             InitializeComponent();
         }
+
+        private void resultFrame_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

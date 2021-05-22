@@ -55,13 +55,16 @@ namespace Calculator_redo
             // 
             // resultFrame
             // 
-            this.resultFrame.Location = new System.Drawing.Point(12, 12);
-            this.resultFrame.MaximumSize = new System.Drawing.Size(400, 400);
-            this.resultFrame.MinimumSize = new System.Drawing.Size(340, 85);
+            this.resultFrame.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.resultFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.5F);
+            this.resultFrame.Location = new System.Drawing.Point(12, 22);
+            this.resultFrame.MaximumSize = new System.Drawing.Size(500, 500);
+            this.resultFrame.MinimumSize = new System.Drawing.Size(365, 75);
             this.resultFrame.Name = "resultFrame";
-            this.resultFrame.Size = new System.Drawing.Size(365, 85);
+            this.resultFrame.Size = new System.Drawing.Size(367, 75);
             this.resultFrame.TabIndex = 0;
             this.resultFrame.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.resultFrame.TextChanged += new System.EventHandler(this.resultFrame_TextChanged);
             // 
             // ClrAllBtn
             // 
@@ -322,8 +325,6 @@ namespace Calculator_redo
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox resultFrame;
         private System.Windows.Forms.Button ClrAllBtn;
         private System.Windows.Forms.Button Btn7;
         private System.Windows.Forms.Button Btn4;
@@ -344,6 +345,7 @@ namespace Calculator_redo
         private System.Windows.Forms.Button minusBtn;
         private System.Windows.Forms.Button plusBtn;
         private System.Windows.Forms.Button equalBtn;
+        private System.Windows.Forms.TextBox resultFrame;
     }
 }
 
