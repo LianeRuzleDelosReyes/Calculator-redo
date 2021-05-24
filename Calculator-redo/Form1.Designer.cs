@@ -51,6 +51,10 @@ namespace Calculator_redo
             this.minusBtn = new System.Windows.Forms.Button();
             this.plusBtn = new System.Windows.Forms.Button();
             this.equalBtn = new System.Windows.Forms.Button();
+            this.input1 = new System.Windows.Forms.Label();
+            this.input2 = new System.Windows.Forms.Label();
+            this.operation_lbl = new System.Windows.Forms.Label();
+            this.stored_action = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // resultFrame
@@ -61,7 +65,7 @@ namespace Calculator_redo
             this.resultFrame.MaximumSize = new System.Drawing.Size(500, 500);
             this.resultFrame.MinimumSize = new System.Drawing.Size(365, 75);
             this.resultFrame.Name = "resultFrame";
-            this.resultFrame.Size = new System.Drawing.Size(367, 75);
+            this.resultFrame.Size = new System.Drawing.Size(367, 40);
             this.resultFrame.TabIndex = 0;
             this.resultFrame.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.resultFrame.TextChanged += new System.EventHandler(this.resultFrame_TextChanged);
@@ -75,6 +79,7 @@ namespace Calculator_redo
             this.ClrAllBtn.TabIndex = 1;
             this.ClrAllBtn.Text = "AC";
             this.ClrAllBtn.UseVisualStyleBackColor = true;
+            this.ClrAllBtn.Click += new System.EventHandler(this.ClrAllBtn_Click);
             // 
             // Btn7
             // 
@@ -87,6 +92,7 @@ namespace Calculator_redo
             this.Btn7.TabIndex = 2;
             this.Btn7.Text = "7";
             this.Btn7.UseVisualStyleBackColor = true;
+            this.Btn7.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn4
             // 
@@ -99,6 +105,7 @@ namespace Calculator_redo
             this.Btn4.TabIndex = 3;
             this.Btn4.Text = "4";
             this.Btn4.UseVisualStyleBackColor = true;
+            this.Btn4.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn1
             // 
@@ -111,6 +118,7 @@ namespace Calculator_redo
             this.Btn1.TabIndex = 4;
             this.Btn1.Text = "1";
             this.Btn1.UseVisualStyleBackColor = true;
+            this.Btn1.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // csignBtn
             // 
@@ -129,8 +137,9 @@ namespace Calculator_redo
             this.DltBtn.Name = "DltBtn";
             this.DltBtn.Size = new System.Drawing.Size(84, 53);
             this.DltBtn.TabIndex = 6;
-            this.DltBtn.Text = "←";
+            this.DltBtn.Text = "DEL";
             this.DltBtn.UseVisualStyleBackColor = true;
+            this.DltBtn.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn8
             // 
@@ -143,6 +152,7 @@ namespace Calculator_redo
             this.Btn8.TabIndex = 7;
             this.Btn8.Text = "8";
             this.Btn8.UseVisualStyleBackColor = true;
+            this.Btn8.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn5
             // 
@@ -155,6 +165,7 @@ namespace Calculator_redo
             this.Btn5.TabIndex = 8;
             this.Btn5.Text = "5";
             this.Btn5.UseVisualStyleBackColor = true;
+            this.Btn5.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn2
             // 
@@ -167,6 +178,7 @@ namespace Calculator_redo
             this.Btn2.TabIndex = 9;
             this.Btn2.Text = "2";
             this.Btn2.UseVisualStyleBackColor = true;
+            this.Btn2.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn0
             // 
@@ -179,6 +191,7 @@ namespace Calculator_redo
             this.Btn0.TabIndex = 10;
             this.Btn0.Text = "0";
             this.Btn0.UseVisualStyleBackColor = true;
+            this.Btn0.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // DecBtn
             // 
@@ -189,6 +202,7 @@ namespace Calculator_redo
             this.DecBtn.TabIndex = 11;
             this.DecBtn.Text = ".";
             this.DecBtn.UseVisualStyleBackColor = true;
+            this.DecBtn.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn9
             // 
@@ -201,6 +215,7 @@ namespace Calculator_redo
             this.Btn9.TabIndex = 12;
             this.Btn9.Text = "9";
             this.Btn9.UseVisualStyleBackColor = true;
+            this.Btn9.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn6
             // 
@@ -213,6 +228,7 @@ namespace Calculator_redo
             this.Btn6.TabIndex = 13;
             this.Btn6.Text = "6";
             this.Btn6.UseVisualStyleBackColor = true;
+            this.Btn6.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // Btn3
             // 
@@ -225,6 +241,7 @@ namespace Calculator_redo
             this.Btn3.TabIndex = 14;
             this.Btn3.Text = "3";
             this.Btn3.UseVisualStyleBackColor = true;
+            this.Btn3.Click += new System.EventHandler(this.Btn1_Click);
             // 
             // prcntBtn
             // 
@@ -235,6 +252,7 @@ namespace Calculator_redo
             this.prcntBtn.TabIndex = 15;
             this.prcntBtn.Text = "%";
             this.prcntBtn.UseVisualStyleBackColor = true;
+            this.prcntBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // divisionBtn
             // 
@@ -245,6 +263,7 @@ namespace Calculator_redo
             this.divisionBtn.TabIndex = 16;
             this.divisionBtn.Text = "÷";
             this.divisionBtn.UseVisualStyleBackColor = true;
+            this.divisionBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // timesBtn
             // 
@@ -255,6 +274,7 @@ namespace Calculator_redo
             this.timesBtn.TabIndex = 17;
             this.timesBtn.Text = "×";
             this.timesBtn.UseVisualStyleBackColor = true;
+            this.timesBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // minusBtn
             // 
@@ -265,6 +285,7 @@ namespace Calculator_redo
             this.minusBtn.TabIndex = 18;
             this.minusBtn.Text = "-";
             this.minusBtn.UseVisualStyleBackColor = true;
+            this.minusBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // plusBtn
             // 
@@ -275,6 +296,7 @@ namespace Calculator_redo
             this.plusBtn.TabIndex = 19;
             this.plusBtn.Text = "+";
             this.plusBtn.UseVisualStyleBackColor = true;
+            this.plusBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // equalBtn
             // 
@@ -285,6 +307,44 @@ namespace Calculator_redo
             this.equalBtn.TabIndex = 20;
             this.equalBtn.Text = "=";
             this.equalBtn.UseVisualStyleBackColor = true;
+            this.equalBtn.Click += new System.EventHandler(this.equalBtn_Click);
+            // 
+            // input1
+            // 
+            this.input1.AutoSize = true;
+            this.input1.Location = new System.Drawing.Point(324, 82);
+            this.input1.Name = "input1";
+            this.input1.Size = new System.Drawing.Size(36, 13);
+            this.input1.TabIndex = 21;
+            this.input1.Text = "input1";
+            // 
+            // input2
+            // 
+            this.input2.AutoSize = true;
+            this.input2.Location = new System.Drawing.Point(283, 82);
+            this.input2.Name = "input2";
+            this.input2.Size = new System.Drawing.Size(35, 13);
+            this.input2.TabIndex = 22;
+            this.input2.Text = "label2";
+            // 
+            // operation_lbl
+            // 
+            this.operation_lbl.AutoSize = true;
+            this.operation_lbl.Location = new System.Drawing.Point(12, 82);
+            this.operation_lbl.Name = "operation_lbl";
+            this.operation_lbl.Size = new System.Drawing.Size(35, 13);
+            this.operation_lbl.TabIndex = 23;
+            this.operation_lbl.Text = "label1";
+            // 
+            // stored_action
+            // 
+            this.stored_action.AutoSize = true;
+            this.stored_action.Location = new System.Drawing.Point(12, 6);
+            this.stored_action.Name = "stored_action";
+            this.stored_action.Size = new System.Drawing.Size(35, 13);
+            this.stored_action.TabIndex = 24;
+            this.stored_action.Text = "label1";
+            this.stored_action.Click += new System.EventHandler(this.stored_action_Click);
             // 
             // Calculator
             // 
@@ -293,6 +353,10 @@ namespace Calculator_redo
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(387, 427);
+            this.Controls.Add(this.stored_action);
+            this.Controls.Add(this.operation_lbl);
+            this.Controls.Add(this.input2);
+            this.Controls.Add(this.input1);
             this.Controls.Add(this.equalBtn);
             this.Controls.Add(this.plusBtn);
             this.Controls.Add(this.minusBtn);
@@ -346,6 +410,10 @@ namespace Calculator_redo
         private System.Windows.Forms.Button plusBtn;
         private System.Windows.Forms.Button equalBtn;
         private System.Windows.Forms.TextBox resultFrame;
+        private System.Windows.Forms.Label input1;
+        private System.Windows.Forms.Label input2;
+        private System.Windows.Forms.Label operation_lbl;
+        private System.Windows.Forms.Label stored_action;
     }
 }
 
