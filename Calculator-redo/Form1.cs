@@ -21,7 +21,8 @@ namespace Calculator_redo
             InitializeComponent();
             operation_lbl.Hide();
             input1.Hide();
-            input2.Hide();
+            stored_Action2.Hide();
+            resultFrame.Text = "0";
         }
 
 
@@ -54,6 +55,7 @@ namespace Calculator_redo
 
         private void equalBtn_Click(object sender, EventArgs e)
         {
+
             switch (operation)
             {
                 case "+":
@@ -61,8 +63,9 @@ namespace Calculator_redo
                     resultFrame.Text = sum.ToString();
                     break;
                 case "-":
-                    Double difference = result - Double.Parse(resultFrame.Text);
-                    resultFrame.Text = difference.ToString();
+                    Double difference = Double.Parse(resultFrame.Text) - result;
+                    Double difference2 = difference * -1;
+                    resultFrame.Text = difference2.ToString();
                         break;
                 case "÷":
                     Double division = result / Double.Parse(resultFrame.Text) ;
@@ -72,31 +75,49 @@ namespace Calculator_redo
                     Double multiplication = result * Double.Parse(resultFrame.Text);
                     resultFrame.Text = multiplication.ToString();
                         break;
+                case "%":
+                    Double percentage = result / 100;
+                    resultFrame.Text = percentage.ToString();
+                    break;
 
             }
         }
 
         private void plusBtn_Click(object sender, EventArgs e)
         {
-            equalBtn.PerformClick();
+            
             Button operation_btn = (Button)sender;
             operation = operation_btn.Text;
             result = Double.Parse(resultFrame.Text);
-            stored_action.Text = resultFrame.Text + " " + operation;
+            stored_action.Text = resultFrame.Text + operation + " ";
+            equalBtn.PerformClick();
             operation_performed = true;
-            resultFrame.Clear(); 
-           
+            resultFrame.Clear();
+            
+
+
         }
 
         private void ClrAllBtn_Click(object sender, EventArgs e)
         {
             result = 0;
-            resultFrame.Clear();
+            resultFrame.Text = "0";
             stored_action.Text = "";
         }
 
         private void stored_action_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void DltBtn_Click(object sender, EventArgs e)
+        {
+            var text = resultFrame.Text;
+            if (text.Length > 0)
+            {
+                resultFrame.Text = text.Remove(text.Length - 1);
+
+            }
 
         }
     }

@@ -52,7 +52,7 @@ namespace Calculator_redo
             this.plusBtn = new System.Windows.Forms.Button();
             this.equalBtn = new System.Windows.Forms.Button();
             this.input1 = new System.Windows.Forms.Label();
-            this.input2 = new System.Windows.Forms.Label();
+            this.stored_Action2 = new System.Windows.Forms.Label();
             this.operation_lbl = new System.Windows.Forms.Label();
             this.stored_action = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -139,7 +139,7 @@ namespace Calculator_redo
             this.DltBtn.TabIndex = 6;
             this.DltBtn.Text = "DEL";
             this.DltBtn.UseVisualStyleBackColor = true;
-            this.DltBtn.Click += new System.EventHandler(this.Btn1_Click);
+            this.DltBtn.Click += new System.EventHandler(this.DltBtn_Click);
             // 
             // Btn8
             // 
@@ -318,14 +318,14 @@ namespace Calculator_redo
             this.input1.TabIndex = 21;
             this.input1.Text = "input1";
             // 
-            // input2
+            // stored_Action2
             // 
-            this.input2.AutoSize = true;
-            this.input2.Location = new System.Drawing.Point(283, 82);
-            this.input2.Name = "input2";
-            this.input2.Size = new System.Drawing.Size(35, 13);
-            this.input2.TabIndex = 22;
-            this.input2.Text = "label2";
+            this.stored_Action2.AutoSize = true;
+            this.stored_Action2.Location = new System.Drawing.Point(283, 82);
+            this.stored_Action2.Name = "stored_Action2";
+            this.stored_Action2.Size = new System.Drawing.Size(35, 13);
+            this.stored_Action2.TabIndex = 22;
+            this.stored_Action2.Text = "label2";
             // 
             // operation_lbl
             // 
@@ -355,7 +355,7 @@ namespace Calculator_redo
             this.ClientSize = new System.Drawing.Size(387, 427);
             this.Controls.Add(this.stored_action);
             this.Controls.Add(this.operation_lbl);
-            this.Controls.Add(this.input2);
+            this.Controls.Add(this.stored_Action2);
             this.Controls.Add(this.input1);
             this.Controls.Add(this.equalBtn);
             this.Controls.Add(this.plusBtn);
@@ -411,7 +411,7 @@ namespace Calculator_redo
         private System.Windows.Forms.Button equalBtn;
         private System.Windows.Forms.TextBox resultFrame;
         private System.Windows.Forms.Label input1;
-        private System.Windows.Forms.Label input2;
+        private System.Windows.Forms.Label stored_Action2;
         private System.Windows.Forms.Label operation_lbl;
         private System.Windows.Forms.Label stored_action;
     }
