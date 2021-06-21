@@ -120,5 +120,18 @@ namespace Calculator_redo
             }
 
         }
+
+        private void csignBtn_Click(object sender, EventArgs e)
+        {
+            if (resultFrame.Text.StartsWith("-"))
+            {
+                resultFrame.Text = resultFrame.Text.Substring(1);
+            }
+
+            else if(!string.IsNullOrEmpty(resultFrame.Text) && decimal.Parse(resultFrame.Text) != 0)
+            {
+                resultFrame.Text = "-" + resultFrame.Text;
+            }
+        }
     }
 }

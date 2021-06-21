@@ -129,6 +129,7 @@ namespace Calculator_redo
             this.csignBtn.TabIndex = 5;
             this.csignBtn.Text = "+/-";
             this.csignBtn.UseVisualStyleBackColor = true;
+            this.csignBtn.Click += new System.EventHandler(this.csignBtn_Click);
             // 
             // DltBtn
             // 
