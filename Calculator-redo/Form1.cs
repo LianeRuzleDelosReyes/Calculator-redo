@@ -41,20 +41,30 @@ namespace Calculator_redo
                 if (!resultFrame.Text.Contains("."))
                 {
                     resultFrame.Text = resultFrame.Text + button.Text;
-                    stored_action.Text = resultFrame.Text;
-
+                    
                 }
-                else
-                    resultFrame.Text =  resultFrame.Text + button.Text;
+
+                else if (resultFrame.Text.Contains("."))
+                {
+                                      
+                    resultFrame.Text = resultFrame.Text + button.Text;
+                    stored_action.Text = resultFrame.Text;
+                }
+                
+
+
 
 
 
             }
 
-            else
+            else 
             {
                 resultFrame.Text = resultFrame.Text + button.Text;
             }
+
+            
+
             
             
         }

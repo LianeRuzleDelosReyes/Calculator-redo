@@ -53,6 +53,7 @@ namespace Calculator_redo
             this.equalBtn = new System.Windows.Forms.Button();
             this.operation_lbl = new System.Windows.Forms.Label();
             this.stored_action = new System.Windows.Forms.Label();
+            this.decimalNum = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // resultFrame
@@ -328,6 +329,14 @@ namespace Calculator_redo
             this.stored_action.TabIndex = 24;
             this.stored_action.Click += new System.EventHandler(this.stored_action_Click);
             // 
+            // decimalNum
+            // 
+            this.decimalNum.AutoSize = true;
+            this.decimalNum.Location = new System.Drawing.Point(323, 82);
+            this.decimalNum.Name = "decimalNum";
+            this.decimalNum.Size = new System.Drawing.Size(0, 13);
+            this.decimalNum.TabIndex = 25;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,6 +344,7 @@ namespace Calculator_redo
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(387, 427);
+            this.Controls.Add(this.decimalNum);
             this.Controls.Add(this.stored_action);
             this.Controls.Add(this.operation_lbl);
             this.Controls.Add(this.equalBtn);
@@ -394,6 +404,7 @@ namespace Calculator_redo
         private System.Windows.Forms.TextBox resultFrame;
         private System.Windows.Forms.Label operation_lbl;
         private System.Windows.Forms.Label stored_action;
+        private System.Windows.Forms.Label decimalNum;
     }
 }
 
