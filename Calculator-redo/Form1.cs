@@ -89,7 +89,7 @@ namespace Calculator_redo
             Button operation_btn = (Button)sender;
             operation = operation_btn.Text;
             result = Double.Parse(resultFrame.Text);
-            stored_action.Text = resultFrame.Text + operation + " ";
+            stored_action.Text = resultFrame.Text  + " " + operation;
             equalBtn.PerformClick();
             operation_performed = true;
             resultFrame.Clear();
@@ -116,6 +116,12 @@ namespace Calculator_redo
             if (text.Length > 0)
             {
                 resultFrame.Text = text.Remove(text.Length - 1);
+
+                var text2 = resultFrame.Text;
+                if(text2.Length == 0)
+                {
+                    resultFrame.Text = "0";
+                }
 
             }
 
