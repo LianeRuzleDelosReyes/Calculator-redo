@@ -69,8 +69,13 @@ namespace Calculator_redo
                         break;
                 case "÷":
                     Double division = result / Double.Parse(resultFrame.Text) ;
-                    resultFrame.Text = division.ToString();
-                        break;
+                    if(resultFrame.Text == "0")
+                    {
+                        resultFrame.Text = "Cannot be divide by 0";
+                    }
+                    else
+                        resultFrame.Text = division.ToString();
+                    break;
                 case "×":
                     Double multiplication = result * Double.Parse(resultFrame.Text);
                     resultFrame.Text = multiplication.ToString();
@@ -89,7 +94,7 @@ namespace Calculator_redo
             Button operation_btn = (Button)sender;
             operation = operation_btn.Text;
             result = Double.Parse(resultFrame.Text);
-            stored_action.Text = resultFrame.Text  + " " + operation;
+            stored_action.Text = resultFrame.Text + " " + operation;
             equalBtn.PerformClick();
             operation_performed = true;
             resultFrame.Clear();

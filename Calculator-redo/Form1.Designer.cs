@@ -340,11 +340,12 @@ namespace Calculator_redo
             // stored_action
             // 
             this.stored_action.AutoSize = true;
-            this.stored_action.Location = new System.Drawing.Point(12, 6);
+            this.stored_action.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stored_action.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.stored_action.Location = new System.Drawing.Point(21, 32);
             this.stored_action.Name = "stored_action";
-            this.stored_action.Size = new System.Drawing.Size(35, 13);
+            this.stored_action.Size = new System.Drawing.Size(0, 19);
             this.stored_action.TabIndex = 24;
-            this.stored_action.Text = "label1";
             this.stored_action.Click += new System.EventHandler(this.stored_action_Click);
             // 
             // Calculator
