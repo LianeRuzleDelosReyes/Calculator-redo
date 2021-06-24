@@ -69,7 +69,7 @@ namespace Calculator_redo
                     Double division = result / Double.Parse(resultFrame.Text) ;
                     if(resultFrame.Text == "0")
                     {
-                        resultFrame.Text = "Cannot be divide by 0";
+                        resultFrame.Text = "Cannot be divided by 0";
                     }
                     else
                         resultFrame.Text = division.ToString();
@@ -97,6 +97,7 @@ namespace Calculator_redo
             operation_performed = true;
             resultFrame.Clear();
             
+
 
 
         }
