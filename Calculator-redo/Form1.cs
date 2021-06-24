@@ -20,8 +20,6 @@ namespace Calculator_redo
         {
             InitializeComponent();
             operation_lbl.Hide();
-            input1.Hide();
-            stored_Action2.Hide();
             resultFrame.Text = "0";
         }
 
