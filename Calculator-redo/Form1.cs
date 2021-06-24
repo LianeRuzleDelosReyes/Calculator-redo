@@ -50,9 +50,6 @@ namespace Calculator_redo
                     resultFrame.Text = resultFrame.Text + button.Text;
                     stored_action.Text = resultFrame.Text;
                 }
-                
-
-
 
 
 
