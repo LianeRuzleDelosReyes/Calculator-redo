@@ -58,7 +58,7 @@ namespace Calculator_redo
             // 
             // resultFrame
             // 
-            this.resultFrame.Cursor = System.Windows.Forms.Cursors.No;
+            this.resultFrame.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.resultFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.5F);
             this.resultFrame.Location = new System.Drawing.Point(12, 22);
             this.resultFrame.MaximumSize = new System.Drawing.Size(500, 500);
