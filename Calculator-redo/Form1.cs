@@ -104,18 +104,30 @@ namespace Calculator_redo
         private void plusBtn_Click(object sender, EventArgs e)
         {
             
-            Button operation_btn = (Button)sender;
-            operation = operation_btn.Text;
-            result = Double.Parse(resultFrame.Text);
-            stored_action.Text = resultFrame.Text + " " + operation;
-            equalBtn.PerformClick();
-            operation_performed = true;
-            resultFrame.Clear();
-            
+            try
+            {
+                Button operation_btn = (Button)sender;
+                operation = operation_btn.Text;
+                result = Double.Parse(resultFrame.Text);
+                stored_action.Text = resultFrame.Text + " " + operation;
+                equalBtn.PerformClick();
+                operation_performed = true;
+                resultFrame.Clear();
+            }
+
+            catch
+            {
+
+
+            }
 
 
 
         }
+
+
+
+        
 
         private void ClrAllBtn_Click(object sender, EventArgs e)
         {
