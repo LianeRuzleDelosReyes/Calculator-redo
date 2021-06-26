@@ -21,13 +21,27 @@ namespace Calculator_redo
             InitializeComponent();
             operation_lbl.Hide();
             resultFrame.Text = "0";
+            
         }
 
 
         private void resultFrame_TextChanged(object sender, EventArgs e)
         {
+            var text3 = resultFrame.Text;
+            if (text3.Length > 13)
+            {
+                Font Font_New = new Font("Microsoft Sans Serif", 8.5f);
+                resultFrame.Font = Font_New;
 
+            }
+            else
+            {
+                Font Font_New = new Font("Microsoft Sans Serif", 21.5f);
+                resultFrame.Font = Font_New;
+            }
         }
+
+        
 
         private void Btn1_Click(object sender, EventArgs e)
         {
@@ -45,8 +59,7 @@ namespace Calculator_redo
                 }
 
                 else if (resultFrame.Text.Contains("."))
-                {
-                                      
+                {                     
                     resultFrame.Text = resultFrame.Text + button.Text;
                     stored_action.Text = resultFrame.Text;
                 }
@@ -68,37 +81,45 @@ namespace Calculator_redo
 
         private void equalBtn_Click(object sender, EventArgs e)
         {
-
-            switch (operation)
+            try
             {
-                case "+":
-                    Double sum = result + Double.Parse(resultFrame.Text);
-                    resultFrame.Text = sum.ToString();
-                    break;
-                case "-":
-                    Double difference = Double.Parse(resultFrame.Text) - result;
-                    Double difference2 = difference * -1;
-                    resultFrame.Text = difference2.ToString();
+                switch (operation)
+                {
+                    case "+":
+                        Double sum = result + Double.Parse(resultFrame.Text);
+                        resultFrame.Text = sum.ToString();
                         break;
-                case "÷":
-                    Double division = result / Double.Parse(resultFrame.Text) ;
-                    if(resultFrame.Text == "0")
-                    {
-                        resultFrame.Text = "Cannot be divided by 0";
-                    }
-                    else
-                        resultFrame.Text = division.ToString();
-                    break;
-                case "×":
-                    Double multiplication = result * Double.Parse(resultFrame.Text);
-                    resultFrame.Text = multiplication.ToString();
+                    case "-":
+                        Double difference = Double.Parse(resultFrame.Text) - result;
+                        Double difference2 = difference * -1;
+                        resultFrame.Text = difference2.ToString();
                         break;
-                case "%":
-                    Double percentage = result / 100;
-                    resultFrame.Text = percentage.ToString();
-                    break;
+                    case "÷":
+                        Double division = result / Double.Parse(resultFrame.Text);
+                        if (resultFrame.Text == "0")
+                        {
+                            resultFrame.Text = "Cannot be divided by 0";
+                        }
+                        else
+                            resultFrame.Text = division.ToString();
+                        break;
+                    case "×":
+                        Double multiplication = result * Double.Parse(resultFrame.Text);
+                        resultFrame.Text = multiplication.ToString();
+                        break;
+                    case "%":
+                        Double percentage = result / 100;
+                        resultFrame.Text = percentage.ToString();
+                        break;
 
+                }
             }
+            catch
+            {
+                resultFrame.Text = "Invalid";
+            }
+
+           
         }
 
         private void plusBtn_Click(object sender, EventArgs e)
@@ -138,7 +159,7 @@ namespace Calculator_redo
 
         private void stored_action_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void DltBtn_Click(object sender, EventArgs e)
@@ -155,6 +176,7 @@ namespace Calculator_redo
                 }
 
             }
+            
 
         }
 
@@ -170,5 +192,28 @@ namespace Calculator_redo
                 resultFrame.Text = "-" + resultFrame.Text;
             }
         }
+
+        
+
+        private void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == '.' && resultFrame.Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+
+         
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
+
+        
+          
+
+            
+            
     }
+
 }

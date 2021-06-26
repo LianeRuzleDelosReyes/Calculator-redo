@@ -58,16 +58,18 @@ namespace Calculator_redo
             // 
             // resultFrame
             // 
-            this.resultFrame.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.resultFrame.Cursor = System.Windows.Forms.Cursors.No;
             this.resultFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.5F);
             this.resultFrame.Location = new System.Drawing.Point(12, 22);
             this.resultFrame.MaximumSize = new System.Drawing.Size(500, 500);
             this.resultFrame.MinimumSize = new System.Drawing.Size(365, 75);
+            this.resultFrame.Multiline = true;
             this.resultFrame.Name = "resultFrame";
-            this.resultFrame.Size = new System.Drawing.Size(367, 40);
+            this.resultFrame.Size = new System.Drawing.Size(367, 75);
             this.resultFrame.TabIndex = 0;
             this.resultFrame.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.resultFrame.TextChanged += new System.EventHandler(this.resultFrame_TextChanged);
+            this.resultFrame.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.resultFrame_KeyPress);
             // 
             // ClrAllBtn
             // 
