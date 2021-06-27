@@ -8,42 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Calculator_redo
 {
     public partial class Calculator : Form
     {
 
+
         Double result = 0;
         string operation = "";
         Boolean operation_performed = false;
+
+        TextboxResult ts = new TextboxResult();
+        
+
         public Calculator()
         {
             InitializeComponent();
             operation_lbl.Hide();
             resultFrame.Text = "0";
-            
+
+
         }
+        
 
 
-        private void resultFrame_TextChanged(object sender, EventArgs e)
+        public void resultFrame_TextChanged(object sender, EventArgs e)
         {
-            var text3 = resultFrame.Text;
-            if (text3.Length > 13)
-            {
-                Font Font_New = new Font("Microsoft Sans Serif", 8.5f);
-                resultFrame.Font = Font_New;
-
-            }
-            else
-            {
-                Font Font_New = new Font("Microsoft Sans Serif", 21.5f);
-                resultFrame.Font = Font_New;
-            }
+            
         }
 
         
 
-        private void Btn1_Click(object sender, EventArgs e)
+        public void Btn1_Click(object sender, EventArgs e)
         {
             if((resultFrame.Text == "0") || operation_performed) 
                 resultFrame.Clear();
@@ -63,23 +61,17 @@ namespace Calculator_redo
                     resultFrame.Text = resultFrame.Text + button.Text;
                     stored_action.Text = resultFrame.Text;
                 }
-
-
-
             }
 
             else 
             {
                 resultFrame.Text = resultFrame.Text + button.Text;
             }
-
-            
-
-            
+      
             
         }
 
-        private void equalBtn_Click(object sender, EventArgs e)
+        public void equalBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -111,7 +103,6 @@ namespace Calculator_redo
                         Double percentage = result / 100;
                         resultFrame.Text = percentage.ToString();
                         break;
-
                 }
             }
             catch
@@ -122,9 +113,9 @@ namespace Calculator_redo
            
         }
 
-        private void plusBtn_Click(object sender, EventArgs e)
+        public void plusBtn_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 Button operation_btn = (Button)sender;
@@ -144,13 +135,14 @@ namespace Calculator_redo
 
 
 
+
         }
 
 
 
         
 
-        private void ClrAllBtn_Click(object sender, EventArgs e)
+        public void ClrAllBtn_Click(object sender, EventArgs e)
         {
             result = 0;
             resultFrame.Text = "0";
@@ -162,7 +154,7 @@ namespace Calculator_redo
             
         }
 
-        private void DltBtn_Click(object sender, EventArgs e)
+        public void DltBtn_Click(object sender, EventArgs e)
         {
             var text = resultFrame.Text;
             if (text.Length > 0)
@@ -180,7 +172,7 @@ namespace Calculator_redo
 
         }
 
-        private void csignBtn_Click(object sender, EventArgs e)
+        public void csignBtn_Click(object sender, EventArgs e)
         {
             if (resultFrame.Text.StartsWith("-"))
             {
@@ -195,7 +187,7 @@ namespace Calculator_redo
 
         
 
-        private void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
+        public void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == '.' && resultFrame.Text.Contains("."))
             {
@@ -208,7 +200,7 @@ namespace Calculator_redo
                 e.Handled = true;
             }
         }
-
+       
         
           
 
