@@ -15,34 +15,34 @@ namespace Calculator_redo
     public partial class Calculator : Form
     {
 
+        TextboxResult calcu = new TextboxResult();
 
-        Double result = 0;
-        string operation = "";
-        Boolean operation_performed = false;
-
-        
-        
 
         public Calculator()
         {
             InitializeComponent();
             operation_lbl.Hide();
             resultFrame.Text = "0";
-
-            TextboxResult ts = new TextboxResult();
         }
-        
+
+
 
 
         public void resultFrame_TextChanged(object sender, EventArgs e)
+        {
+            change_font();
+        }
+
+
+
+
+        public void change_font()
         {
             var text3 = resultFrame.Text;
             if (text3.Length > 13)
             {
                 Font Font_New = new Font("Microsoft Sans Serif", 8.5f);
                 resultFrame.Font = Font_New;
-
-
             }
             else
             {
@@ -51,152 +51,118 @@ namespace Calculator_redo
             }
         }
 
-        
+
+
 
         public void Btn1_Click(object sender, EventArgs e)
         {
-            if((resultFrame.Text == "0") || operation_performed) 
+            if ((resultFrame.Text == "0") || calcu.Operation_performed)
                 resultFrame.Clear();
 
-            operation_performed = false;
+            calcu.Operation_performed = false;
             Button button = (Button)sender;
-            if(resultFrame.Text == ".")
+            if (resultFrame.Text == ".")
             {
                 if (!resultFrame.Text.Contains("."))
                 {
                     resultFrame.Text = resultFrame.Text + button.Text;
-                    
+
                 }
 
                 else if (resultFrame.Text.Contains("."))
-                {                     
+                {
                     resultFrame.Text = resultFrame.Text + button.Text;
                     stored_action.Text = resultFrame.Text;
                 }
             }
 
-            else 
+            else
             {
                 resultFrame.Text = resultFrame.Text + button.Text;
             }
-      
-            
         }
+
+
+
 
         public void equalBtn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                switch (operation)
-                {
-                    case "+":
-                        Double sum = result + Double.Parse(resultFrame.Text);
-                        resultFrame.Text = sum.ToString();
-                        break;
-                    case "-":
-                        Double difference = Double.Parse(resultFrame.Text) - result;
-                        Double difference2 = difference * -1;
-                        resultFrame.Text = difference2.ToString();
-                        break;
-                    case "÷":
-                        Double division = result / Double.Parse(resultFrame.Text);
-                        if (resultFrame.Text == "0")
-                        {
-                            resultFrame.Text = "Cannot be divided by 0";
-                        }
-                        else
-                            resultFrame.Text = division.ToString();
-                        break;
-                    case "×":
-                        Double multiplication = result * Double.Parse(resultFrame.Text);
-                        resultFrame.Text = multiplication.ToString();
-                        break;
-                    case "%":
-                        Double percentage = result / 100;
-                        resultFrame.Text = percentage.ToString();
-                        break;
-                }
-            }
-            catch
-            {
-                resultFrame.Text = "Invalid";
-            }
-
-           
+            calcu.NumB = resultFrame.Text;
+            calcu.operationVariation();
+            resultFrame.Text = calcu.NumB;
         }
+
+
+
 
         public void plusBtn_Click(object sender, EventArgs e)
         {
-
             try
             {
                 Button operation_btn = (Button)sender;
-                operation = operation_btn.Text;
-                result = Double.Parse(resultFrame.Text);
-                stored_action.Text = resultFrame.Text + " " + operation;
-                equalBtn.PerformClick();
-                operation_performed = true;
-                resultFrame.Clear();
+                calcu.Operation = operation_btn.Text;
+                formula();
             }
 
             catch
             {
-
-
             }
-
-
-
-
         }
 
 
 
-        
+
+        public void formula()
+        {
+            calcu.Result = Double.Parse(resultFrame.Text);
+            stored_action.Text = resultFrame.Text + " " + calcu.Operation;
+            equalBtn.PerformClick();
+            calcu.Operation_performed = true;
+            resultFrame.Clear();
+        }
+
+
+
 
         public void ClrAllBtn_Click(object sender, EventArgs e)
         {
-            result = 0;
-            resultFrame.Text = "0";
-            stored_action.Text = "";
-        }
+            calcu.NumB = resultFrame.Text;
+            calcu.StorageTxt = stored_action.Text;
+            calcu.clearButtonMethod();
+
+            resultFrame.Text = calcu.NumB;
+            stored_action.Text = calcu.StorageTxt;
+        } 
+
+       
+
 
         private void stored_action_Click(object sender, EventArgs e)
         {
             
         }
 
+
+
+
         public void DltBtn_Click(object sender, EventArgs e)
         {
-            var text = resultFrame.Text;
-            if (text.Length > 0)
-            {
-                resultFrame.Text = text.Remove(text.Length - 1);
-
-                var text2 = resultFrame.Text;
-                if(text2.Length == 0)
-                {
-                    resultFrame.Text = "0";
-                }
-
-            }
-            
-
+            calcu.NumB = resultFrame.Text;
+            calcu.deleteMethod();
+            resultFrame.Text = calcu.NumB;
         }
+
+       
+
 
         public void csignBtn_Click(object sender, EventArgs e)
         {
-            if (resultFrame.Text.StartsWith("-"))
-            {
-                resultFrame.Text = resultFrame.Text.Substring(1);
-            }
-
-            else if(!string.IsNullOrEmpty(resultFrame.Text) && decimal.Parse(resultFrame.Text) != 0)
-            {
-                resultFrame.Text = "-" + resultFrame.Text;
-            }
+            calcu.NumB = resultFrame.Text;
+            calcu.csignBtnMethod();
+            resultFrame.Text = calcu.NumB;
         }
 
+       
         
 
         public void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
@@ -205,7 +171,6 @@ namespace Calculator_redo
             {
                 e.Handled = true;
             }
-
          
             else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {

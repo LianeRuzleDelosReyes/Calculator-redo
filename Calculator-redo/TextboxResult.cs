@@ -9,184 +9,101 @@ namespace Calculator_redo
 {
     class TextboxResult
     {
-        public void resultFrame_TextChanged(object sender, EventArgs e)
-        {
-            var text3 = resultFrame.Text;
-            if (text3.Length > 13)
-            {
-                Font Font_New = new Font("Microsoft Sans Serif", 8.5f);
-                resultFrame.Font = Font_New;
+        private Double result = 0;
+        public double Result { get => result; set => result = value; }
+       
+        private string operation = "";
+        public string Operation { get => operation; set => operation = value; }
+       
+        private Boolean operation_performed = false;
+        public bool Operation_performed { get => operation_performed; set => operation_performed = value; }
 
-
-            }
-            else
-            {
-                Font Font_New = new Font("Microsoft Sans Serif", 21.5f);
-                resultFrame.Font = Font_New;
-            }
-        }
+        private string numB;
+        public string NumB { get => numB; set => numB = value; }
+        
+        private string storageTxt;
+        public string StorageTxt { get => storageTxt; set => storageTxt = value; }
 
 
 
-        public void Btn1_Click(object sender, EventArgs e)
-        {
-            if ((resultFrame.Text == "0") || operation_performed)
-                resultFrame.Clear();
-
-            operation_performed = false;
-            Button button = (Button)sender;
-            if (resultFrame.Text == ".")
-            {
-                if (!resultFrame.Text.Contains("."))
-                {
-                    resultFrame.Text = resultFrame.Text + button.Text;
-
-                }
-
-                else if (resultFrame.Text.Contains("."))
-                {
-                    resultFrame.Text = resultFrame.Text + button.Text;
-                    stored_action.Text = resultFrame.Text;
-                }
-            }
-
-            else
-            {
-                resultFrame.Text = resultFrame.Text + button.Text;
-            }
-
-
-        }
-
-        public void equalBtn_Click(object sender, EventArgs e)
+        public void operationVariation()
         {
             try
             {
-                switch (operation)
+                switch (Operation)
                 {
                     case "+":
-                        Double sum = result + Double.Parse(resultFrame.Text);
-                        resultFrame.Text = sum.ToString();
+                        Double sum = Result + Double.Parse(NumB);
+                        numB = sum.ToString();
                         break;
                     case "-":
-                        Double difference = Double.Parse(resultFrame.Text) - result;
+                        Double difference = Double.Parse(NumB) - Result;
                         Double difference2 = difference * -1;
-                        resultFrame.Text = difference2.ToString();
+                        numB = difference2.ToString();
                         break;
                     case "÷":
-                        Double division = result / Double.Parse(resultFrame.Text);
-                        if (resultFrame.Text == "0")
+                        Double division = Result / Double.Parse(NumB);
+                        if (numB == "0")
                         {
-                            resultFrame.Text = "Cannot be divided by 0";
+                            numB = "Cannot be divided by 0";
                         }
                         else
-                            resultFrame.Text = division.ToString();
+                            numB = division.ToString();
                         break;
                     case "×":
-                        Double multiplication = result * Double.Parse(resultFrame.Text);
-                        resultFrame.Text = multiplication.ToString();
+                        Double multiplication = Result * Double.Parse(numB);
+                        numB = multiplication.ToString();
                         break;
                     case "%":
-                        Double percentage = result / 100;
-                        resultFrame.Text = percentage.ToString();
+                        Double percentage = Result / 100;
+                        numB = percentage.ToString();
                         break;
                 }
             }
             catch
             {
-                resultFrame.Text = "Invalid";
+                numB = "Invalid";
             }
-
-
         }
 
-        public void plusBtn_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                Button operation_btn = (Button)sender;
-                operation = operation_btn.Text;
-                result = Double.Parse(resultFrame.Text);
-                stored_action.Text = resultFrame.Text + " " + operation;
-                equalBtn.PerformClick();
-                operation_performed = true;
-                resultFrame.Clear();
-            }
-
-            catch
-            {
-
-
-            }
-
-
-
-
-        }
-
-
-
-
-
-        public void ClrAllBtn_Click(object sender, EventArgs e)
+        public void clearButtonMethod()
         {
             result = 0;
-            resultFrame.Text = "0";
-            stored_action.Text = "";
+            numB = "0";
+            storageTxt = "";
         }
 
-        private void stored_action_Click(object sender, EventArgs e)
+        public void deleteMethod()
         {
-
-        }
-
-        public void DltBtn_Click(object sender, EventArgs e)
-        {
-            var text = resultFrame.Text;
+            var text = numB;
             if (text.Length > 0)
             {
-                resultFrame.Text = text.Remove(text.Length - 1);
+                numB = text.Remove(text.Length - 1);
 
-                var text2 = resultFrame.Text;
+                var text2 = numB;
                 if (text2.Length == 0)
                 {
-                    resultFrame.Text = "0";
+                    numB = "0";
                 }
-
             }
-
-
         }
 
-        public void csignBtn_Click(object sender, EventArgs e)
+
+
+
+        public void csignBtnMethod()
         {
-            if (resultFrame.Text.StartsWith("-"))
+            if (numB.StartsWith("-"))
             {
-                resultFrame.Text = resultFrame.Text.Substring(1);
+                numB = numB.Substring(1);
             }
 
-            else if (!string.IsNullOrEmpty(resultFrame.Text) && decimal.Parse(resultFrame.Text) != 0)
+            else if (!string.IsNullOrEmpty(numB) && decimal.Parse(numB) != 0)
             {
-                resultFrame.Text = "-" + resultFrame.Text;
-            }
-        }
-
-
-
-        public void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == '.' && resultFrame.Text.Contains("."))
-            {
-                e.Handled = true;
-            }
-
-
-            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
+                numB = "-" + numB;
             }
         }
+
 
 
     }
