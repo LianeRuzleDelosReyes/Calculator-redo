@@ -20,7 +20,7 @@ namespace Calculator_redo
         string operation = "";
         Boolean operation_performed = false;
 
-        TextboxResult ts = new TextboxResult();
+        
         
 
         public Calculator()
@@ -29,14 +29,26 @@ namespace Calculator_redo
             operation_lbl.Hide();
             resultFrame.Text = "0";
 
-
+            TextboxResult ts = new TextboxResult();
         }
         
 
 
         public void resultFrame_TextChanged(object sender, EventArgs e)
         {
-            
+            var text3 = resultFrame.Text;
+            if (text3.Length > 13)
+            {
+                Font Font_New = new Font("Microsoft Sans Serif", 8.5f);
+                resultFrame.Font = Font_New;
+
+
+            }
+            else
+            {
+                Font Font_New = new Font("Microsoft Sans Serif", 21.5f);
+                resultFrame.Font = Font_New;
+            }
         }
 
         
