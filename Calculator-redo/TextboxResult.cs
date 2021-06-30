@@ -24,8 +24,6 @@ namespace Calculator_redo
         private string storageTxt;
         public string StorageTxt { get => storageTxt; set => storageTxt = value; }
 
-
-
         public void operationVariation()
         {
             try
@@ -88,9 +86,6 @@ namespace Calculator_redo
             }
         }
 
-
-
-
         public void csignBtnMethod()
         {
             if (numB.StartsWith("-"))
@@ -103,8 +98,5 @@ namespace Calculator_redo
                 numB = "-" + numB;
             }
         }
-
-
-
     }
 }

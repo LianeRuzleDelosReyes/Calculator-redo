@@ -14,9 +14,7 @@ namespace Calculator_redo
 {
     public partial class Calculator : Form
     {
-
         TextboxResult calcu = new TextboxResult();
-
 
         public Calculator()
         {
@@ -25,16 +23,10 @@ namespace Calculator_redo
             resultFrame.Text = "0";
         }
 
-
-
-
         public void resultFrame_TextChanged(object sender, EventArgs e)
         {
             change_font();
         }
-
-
-
 
         public void change_font()
         {
@@ -51,9 +43,6 @@ namespace Calculator_redo
             }
         }
 
-
-
-
         public void Btn1_Click(object sender, EventArgs e)
         {
             if ((resultFrame.Text == "0") || calcu.Operation_performed)
@@ -66,7 +55,6 @@ namespace Calculator_redo
                 if (!resultFrame.Text.Contains("."))
                 {
                     resultFrame.Text = resultFrame.Text + button.Text;
-
                 }
 
                 else if (resultFrame.Text.Contains("."))
@@ -82,18 +70,12 @@ namespace Calculator_redo
             }
         }
 
-
-
-
         public void equalBtn_Click(object sender, EventArgs e)
         {
             calcu.NumB = resultFrame.Text;
             calcu.operationVariation();
             resultFrame.Text = calcu.NumB;
         }
-
-
-
 
         public void plusBtn_Click(object sender, EventArgs e)
         {
@@ -106,11 +88,9 @@ namespace Calculator_redo
 
             catch
             {
+
             }
         }
-
-
-
 
         public void formula()
         {
@@ -121,9 +101,6 @@ namespace Calculator_redo
             resultFrame.Clear();
         }
 
-
-
-
         public void ClrAllBtn_Click(object sender, EventArgs e)
         {
             calcu.NumB = resultFrame.Text;
@@ -133,27 +110,18 @@ namespace Calculator_redo
             resultFrame.Text = calcu.NumB;
             stored_action.Text = calcu.StorageTxt;
         } 
-
-       
-
-
+    
         private void stored_action_Click(object sender, EventArgs e)
         {
             
         }
-
-
-
 
         public void DltBtn_Click(object sender, EventArgs e)
         {
             calcu.NumB = resultFrame.Text;
             calcu.deleteMethod();
             resultFrame.Text = calcu.NumB;
-        }
-
-       
-
+        }       
 
         public void csignBtn_Click(object sender, EventArgs e)
         {
@@ -161,10 +129,7 @@ namespace Calculator_redo
             calcu.csignBtnMethod();
             resultFrame.Text = calcu.NumB;
         }
-
-       
         
-
         public void resultFrame_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == '.' && resultFrame.Text.Contains("."))
@@ -176,13 +141,6 @@ namespace Calculator_redo
             {
                 e.Handled = true;
             }
-        }
-       
-        
-          
-
-            
-            
+        }              
     }
-
 }
