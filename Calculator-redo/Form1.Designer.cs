@@ -60,7 +60,7 @@ namespace Calculator_redo
             // 
             this.resultFrame.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.resultFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.5F);
-            this.resultFrame.Location = new System.Drawing.Point(12, 22);
+            this.resultFrame.Location = new System.Drawing.Point(12, 12);
             this.resultFrame.MaximumSize = new System.Drawing.Size(500, 500);
             this.resultFrame.MinimumSize = new System.Drawing.Size(365, 75);
             this.resultFrame.Multiline = true;
@@ -314,7 +314,7 @@ namespace Calculator_redo
             // operation_lbl
             // 
             this.operation_lbl.AutoSize = true;
-            this.operation_lbl.Location = new System.Drawing.Point(12, 82);
+            this.operation_lbl.Location = new System.Drawing.Point(12, 99);
             this.operation_lbl.Name = "operation_lbl";
             this.operation_lbl.Size = new System.Drawing.Size(35, 13);
             this.operation_lbl.TabIndex = 23;
